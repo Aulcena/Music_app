@@ -16,8 +16,8 @@ class User < ApplicationRecord
     validate :password, length: {minimum: 6, allow_nil: true}
     
     attr_reader :password
-    
-    def reset_user_session_token
+
+    def reset_user_session_token!
         self.session_token = generate_unique_session_token
         self.save!
         self.session_token
