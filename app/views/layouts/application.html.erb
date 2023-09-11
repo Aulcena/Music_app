@@ -10,7 +10,22 @@
   </head>
 
   <body>
-  <h1>Music App</h1>
+    <nav>
+      <% if current_user.nil? %>
+        <a href="<%=new_users_url %>">Sign up!</a>  
+        <a href="<%=new_session_url %>">Sign in</a>
+        <% else %>
+        <%= current_user.email %>
+          <form action="<%= session_url %>" method="POST"> 
+            <input 
+              type = "hidden"
+              name="authenticity_token" 
+              value="<%= form_authenticity_token %>"> 
+              <input type="hidden" name="_method" value = "DELETE">
+              <input type="submit" value="Logout">
+          </form>
+      <% end %>
+    </nav>
     <%= yield %>
   </body>
 </html>
