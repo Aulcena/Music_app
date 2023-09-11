@@ -1,4 +1,4 @@
-class UsersController < ActionController
+class UsersController < ApplicationController
 
     def new
         @user = User.new
@@ -12,12 +12,13 @@ class UsersController < ActionController
             redirect_to user_url(@user)
         else
             flash.now[:errors] = @user.errors.full_messages
+            render :new
         end
     end
 
     def show
         @user = User.find_by(id: params[:id])
-        render: show
+        render :show
     end
 
     private
