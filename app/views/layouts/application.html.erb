@@ -12,7 +12,7 @@
   <body>
     <nav>
       <% if current_user.nil? %>
-        <a href="<%=new_users_url %>">Sign up!</a>  
+        <a href="<%=new_user_url %>">Sign up!</a>  
         <a href="<%=new_session_url %>">Sign in</a>
         <% else %>
         <%= current_user.email %>
