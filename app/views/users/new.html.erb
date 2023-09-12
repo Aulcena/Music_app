@@ -1,3 +1,5 @@
+<%= render "shared/errors" %>
+
 <h2>Sign up!</h2>
 
 <form action="<%= users_url %>" method="POST">
@@ -20,5 +22,5 @@
         id="user_password" 
         value="<%= @user.password %>">
 
-    <input type="submit" value="submit">
+    <input type="submit" value="Sign up">
 </form> 
